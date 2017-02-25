@@ -1,0 +1,19 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "9d73d8a9-8a44-4a43-be1a-c4a60d15e060"
+  core:
+    telemetryConsent: "no"
+  editor:
+    fontSize: 13
+    invisibles: {}
+  "exception-reporting":
+    userId: "a71a0615-88ff-993e-f254-42403a2bd2b4"
+  linter:
+    lintOnFly: false
+  "markdown-preview-plus":
+    useGitHubStyle: true
+  react: {}
+  "tree-view": {}
+  welcome:
+    showOnStartup: false

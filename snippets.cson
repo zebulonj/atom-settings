@@ -1,0 +1,187 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# https://atom.io/docs/latest/using-atom-basic-customization#cson
+
+'.source.jsx':
+  'Component':
+    'prefix': 'component'
+    'body': """
+import React, { PropTypes } from 'react';
+
+const Component = React.createClass({
+  propTypes: {
+    children: PropTypes.any
+  },
+
+  render() {
+    return (
+      <div></div>
+    );
+  }
+});
+
+export default Component;
+"""
+  'Private Component':
+    'prefix': 'pcomponent'
+    'body': """
+const Component = React.createClass({
+  propTypes: {
+    children: React.PropTypes.any
+  },
+
+  render() {
+    return (
+      <div></div>
+    );
+  }
+});
+"""
+  'Apostate Context':
+    'prefix': 'apostate.context'
+    'body': """
+contextTypes: {
+  dispatch: React.PropTypes.func.isRequired,
+  state:    React.PropTypes.object.isRequired
+}
+"""
+  'React Default Properties':
+    'prefix': 'react.default.props'
+    'body': """
+getDefaultProps() {
+  return {
+
+  };
+}
+"""
+  'Forms.TextArea':
+    'prefix': 'Forms.TextArea'
+    'body': """
+<Forms.TextArea name="" label="" rows="" cols="" placeholder="" />
+"""
+  'Component Test Boilerplate':
+    'prefix': 'react.test'
+    'body': """
+import test from 'tape';
+import { shallow } from 'enzyme';
+
+import React from 'react';
+
+import ComponentFactory from './';
+
+test( "react/...", sub => {
+  sub.test( "...should render.", assert => {
+    assert.plan( 2 );
+
+    const Component = ComponentFactory({ React });
+
+    const wrapper = shallow( <Component /> );
+
+    assert.ok( wrapper );
+    assert.fail( "Not implemented." );
+
+    assert.end();
+  });
+});
+"""
+  'Component Test Boilerplate (With Context)':
+    'prefix': 'react.test.context'
+    'body': """
+import test from 'tape';
+import { mount } from 'enzyme';
+
+import Immutable from 'immutable';
+import React from 'react';
+
+import ComponentFactory from './';
+
+test( "react/...", sub => {
+  sub.test( "...should render.", assert => {
+    assert.plan( 2 );
+
+    const Component = ComponentFactory({ React });
+
+    const TestWrapper = React.createClass({
+      propTypes: {
+        children: React.PropTypes.any
+      },
+
+      contextTypes: {
+        dispatch: React.PropTypes.func.isRequired,
+        state:    React.PropTypes.object.isRequired
+      },
+
+      render() {
+        return (
+          <Component />
+        );
+      }
+    });
+
+    const context = {
+      state: Immutable.fromJS({}),
+      dispatch() {}
+    };
+
+    const wrapper = mount( <TestWrapper />, { context });
+
+    assert.ok( wrapper );
+    assert.fail( "Not implemented." );
+
+    assert.end();
+  });
+});
+"""
+
+'.source.js':
+  'Factory':
+    'prefix': 'factory'
+    'body': """
+const defaultOptions = {};
+
+export default function( options = {} ) {
+  options = Object.assign({}, defaultOptions, options );
+
+  return {};
+}
+"""
+
+  'Test':
+    'prefix': 'test'
+    'body': """
+test( "", assert => {
+  assert.plan( 1 );
+  assert.fail( "Test not implemented." );
+  assert.end();
+});
+"""
+
+  'Test Suite':
+    'prefix': 'suite'
+    'body': """
+test( "...", sub => {
+  sub.test( "", assert => {
+    assert.plan( 1 );
+    assert.fail( "Test not implemented." );
+    assert.end();
+  });
+});
+"""
