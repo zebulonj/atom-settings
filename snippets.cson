@@ -24,59 +24,64 @@
   'Component':
     'prefix': 'component'
     'body': """
-import React, { PropTypes } from 'react';
+${1:import React, { Component \\} from 'react';
+import PropTypes from 'prop-types';
 
-const Component = React.createClass({
-  propTypes: {
-    children: PropTypes.any
-  },
+}export class ${2:[ComponentName]} extends Component {
+  static propTypes = {};
+  static defaultProps = {};
 
   render() {
     return (
       <div></div>
     );
   }
-});
-
-export default Component;
+}
 """
+
+  'Functional Component':
+    'prefix': 'fcomponent'
+    'body': """
+${1:import React from 'react';
+
+}export const ${2:[ComponentName]} = ( props ) => (
+  <div></div>
+);
+"""
+
+  'Higher Order Component':
+    'prefix': 'hocomponent'
+    'body': """
+export const ${1:[HOC Name]} = WrappedComponent => {
+  class Wrapper extends Component {
+    static propTypes = {};
+    static defaultProps = {};
+
+    render() {
+      return (
+        <WrappedComponent { ...this.props } />
+      );
+    }
+  }
+
+  Wrapper.displayName = `$1(${ getDisplayName( WrappedComponent ) })`;
+
+  return Wrapper;
+}
+"""
+
   'Private Component':
     'prefix': 'pcomponent'
     'body': """
-const Component = React.createClass({
-  propTypes: {
-    children: React.PropTypes.any
-  },
+export const ${1:Component} = ( props ) => (
+  <div></div>
+);
 
-  render() {
-    return (
-      <div></div>
-    );
-  }
-});
-"""
-  'Apostate Context':
-    'prefix': 'apostate.context'
-    'body': """
-contextTypes: {
-  dispatch: React.PropTypes.func.isRequired,
-  state:    React.PropTypes.object.isRequired
-}
-"""
-  'React Default Properties':
-    'prefix': 'react.default.props'
-    'body': """
-getDefaultProps() {
-  return {
+$1.propTypes = {};
 
-  };
-}
+$1.defaultProps = {};
 """
-  'Forms.TextArea':
-    'prefix': 'Forms.TextArea'
-    'body': """
-<Forms.TextArea name="" label="" rows="" cols="" placeholder="" />
-"""
+
   'Component Test Boilerplate':
     'prefix': 'react.test'
     'body': """
@@ -102,6 +107,23 @@ test( "react/...", sub => {
   });
 });
 """
+
+  'Formik Form':
+    'prefix': 'formik'
+    'body': """
+<Form
+  initialValues={{}}
+  onSubmit={ values => {
+    console.log( 'Submit:', values );
+  }}
+  render={ ({ handleSubmit }) => (
+    <form onSubmit={ handleSubmit }>
+      $1
+    </form>
+  )}
+  />
+"""
+
   'Component Test Boilerplate (With Context)':
     'prefix': 'react.test.context'
     'body': """
@@ -167,8 +189,7 @@ export default function( options = {} ) {
   'Test':
     'prefix': 'test'
     'body': """
-test( "", assert => {
-  assert.plan( 1 );
+test( "${1:[Test]}", assert => {
   assert.fail( "Test not implemented." );
   assert.end();
 });
@@ -177,11 +198,43 @@ test( "", assert => {
   'Test Suite':
     'prefix': 'suite'
     'body': """
-test( "...", sub => {
+test( "${1:[Suite]}...", sub => {
   sub.test( "", assert => {
-    assert.plan( 1 );
     assert.fail( "Test not implemented." );
     assert.end();
   });
+});
+"""
+
+  'Reducer':
+    'prefix': 'reducer'
+    'body': """
+export const STATE_KEY = '$reducer';
+
+export default function $reducer( state = {}, action ) {
+  switch ( action.type ) {
+    default:
+      return state;
+  }
+}
+
+"""
+
+  'GraphQLObjectType':
+    'prefix': 'gql.ot'
+    'body': """
+const ${1:[ObjectType]} = new graphql.GraphQLObjectType({
+  name: '$1',
+  fields: {
+    ${2:[FIELD NAME]}: {
+      type: ${3:[FIELD TYPE]},
+      ${4:args: {
+        id: { type: graphql.GraphQLID \\}
+      \\},}
+      ${5:resolve: function ( obj, args, context ) {
+        return $6;
+      \\}}
+    }
+  }
 });
 """

@@ -2,18 +2,49 @@
   "atom-beautify":
     general:
       _analyticsUserId: "9d73d8a9-8a44-4a43-be1a-c4a60d15e060"
+  "autocomplete-plus":
+    confirmCompletion: "tab always, enter when suggestion explicitly selected"
   core:
     telemetryConsent: "no"
   editor:
-    fontSize: 13
     invisibles: {}
+    showInvisibles: true
   "exception-reporting":
     userId: "a71a0615-88ff-993e-f254-42403a2bd2b4"
-  linter:
-    lintOnFly: false
+  "flow-ide": {}
+  linter: {}
+  "linter-ui-default":
+    panelHeight: 69
+    showPanel: true
   "markdown-preview-plus":
     useGitHubStyle: true
-  react: {}
-  "tree-view": {}
+  react:
+    enabledForAllJavascriptFiles: true
+  "todo-show":
+    findTheseTodos: [
+      "TODO"
+      "FIXME"
+      "CHANGED"
+      "XXX"
+      "IDEA"
+      "HACK"
+      "NOTE"
+      "REVIEW"
+      "NB"
+      "BUG"
+      "QUESTION"
+      "COMBAK"
+      "TEMP"
+      "DOCUMENT"
+    ]
+    statusBarIndicator: true
+  "tree-view":
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
+".basic.html.text":
+  editor:
+    autoIndent: true
+".js.jsx.source":
+  editor:
+    autoIndent: true

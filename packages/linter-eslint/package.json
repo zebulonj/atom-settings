@@ -2,40 +2,58 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/d-117125-2857-1n3w3po/package.tgz",
+        "raw": "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/d-117106-59411-1b7frpj.vorvi2uik9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/d-117125-2857-1n3w3po/package.tgz",
-        "spec": "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/d-117125-2857-1n3w3po/package.tgz",
+        "rawSpec": "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/d-117106-59411-1b7frpj.vorvi2uik9/package.tgz",
+        "spec": "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/d-117106-59411-1b7frpj.vorvi2uik9/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/apm-install-dir-117125-2857-12z2ajd"
+      "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/apm-install-dir-117106-59411-1v4gsl0.i4dwt81tt9"
     ]
   ],
-  "_from": "../d-117125-2857-1n3w3po/package.tgz",
-  "_id": "linter-eslint@8.1.2",
+  "_from": "../d-117106-59411-1b7frpj.vorvi2uik9/package.tgz",
+  "_id": "linter-eslint@8.4.0",
   "_inCache": true,
-  "_installable": true,
   "_location": "/linter-eslint",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/d-117125-2857-1n3w3po/package.tgz",
+    "raw": "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/d-117106-59411-1b7frpj.vorvi2uik9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/d-117125-2857-1n3w3po/package.tgz",
-    "spec": "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/d-117125-2857-1n3w3po/package.tgz",
+    "rawSpec": "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/d-117106-59411-1b7frpj.vorvi2uik9/package.tgz",
+    "spec": "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/d-117106-59411-1b7frpj.vorvi2uik9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117125-2857-1n3w3po/package.tgz",
-  "_shasum": "ab3e87ed5019d7af57d790e62f8f4a1c6e45b71f",
+  "_resolved": "file:../d-117106-59411-1b7frpj.vorvi2uik9/package.tgz",
+  "_shasum": "8ec91f3154137a4495d57089bbab58be203f2b78",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/d-117125-2857-1n3w3po/package.tgz",
-  "_where": "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/apm-install-dir-117125-2857-12z2ajd",
+  "_spec": "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/d-117106-59411-1b7frpj.vorvi2uik9/package.tgz",
+  "_where": "/private/var/folders/yw/qbn5clpd5wbbb8_hkxz_v2xc0000gn/T/apm-install-dir-117106-59411-1v4gsl0.i4dwt81tt9",
+  "atomTranspilers": [
+    {
+      "glob": "{src,spec}/*.js",
+      "transpiler": "atom-babel6-transpiler",
+      "options": {
+        "setBabelEnv": false,
+        "babel": {
+          "presets": [
+            "node5"
+          ],
+          "sourceMaps": "inline",
+          "babelrc": false
+        },
+        "cacheKeyFiles": [
+          "package.json"
+        ]
+      }
+    }
+  ],
   "bugs": {
     "url": "https://github.com/AtomLinter/linter-eslint/issues"
   },
@@ -80,11 +98,14 @@
       "type": "string",
       "default": ""
     },
-    "eslintRulesDir": {
-      "title": "ESLint Rules Dir",
-      "description": "Specify a directory for ESLint to load rules from",
-      "type": "string",
-      "default": ""
+    "eslintRulesDirs": {
+      "title": "ESLint Rules Directories",
+      "description": "Specify a comma separated list of directories for ESLint to load rules from.",
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "string"
+      }
     },
     "disableEslintIgnore": {
       "title": "Don't use .eslintignore files",
@@ -134,54 +155,67 @@
       "items": {
         "type": "string"
       }
+    },
+    "ignoreFixableRulesWhileTyping": {
+      "title": "Ignore fixable rules while typing",
+      "description": "Have the linter ignore all fixable rules during linting when editing a document. The list is automatically updated on each lint job, and requires at least one run to be populated. Only supported when using ESLint v4+.",
+      "type": "boolean",
+      "default": false
     }
   },
   "dependencies": {
-    "atom-linter": "^9.0.0",
-    "atom-package-deps": "^4.0.1",
+    "atom-babel6-transpiler": "^1.1.1",
+    "atom-linter": "^10.0.0",
+    "atom-package-deps": "^4.6.0",
+    "babel-preset-node5": "^12.0.0",
     "consistent-path": "^2.0.1",
-    "escape-html": "^1.0.3",
-    "eslint": "^3.6.0",
-    "eslint-rule-documentation": "^1.0.0",
-    "process-communication": "^1.1.0",
+    "crypto-random-string": "^1.0.0",
+    "eslint": "^4.9.0",
+    "eslint-rule-documentation": "^1.0.18",
+    "fs-plus": "^3.0.1",
     "resolve-env": "^1.0.0",
     "user-home": "^2.0.0"
   },
   "description": "Lint JavaScript on the fly, using ESLint",
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-preset-node5": "^12.0.0",
-    "eslint": "^3.12.0",
-    "eslint-config-airbnb-base": "^11.0.0",
-    "eslint-plugin-import": "^2.2.0",
-    "rimraf": "^2.5.4"
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "jasmine-fix": "^1.3.1",
+    "rimraf": "^2.6.2"
   },
   "engines": {
-    "atom": ">=1.10.0 <2.0.0"
+    "atom": ">=1.13.0 <2.0.0"
   },
   "eslintConfig": {
     "rules": {
-      "no-console": 0,
+      "no-console": "off",
       "semi": [
-        2,
+        "error",
         "never"
       ],
-      "func-names": 0,
-      "no-param-reassign": [
-        2,
-        {
-          "props": false
-        }
-      ],
-      "comma-dangle": 0,
-      "no-underscore-dangle": 0,
-      "global-require": 0,
+      "comma-dangle": "off",
+      "global-require": "off",
       "import/no-unresolved": [
-        2,
+        "error",
         {
           "ignore": [
             "atom"
           ]
+        }
+      ],
+      "object-curly-newline": [
+        "error",
+        {
+          "ObjectExpression": {
+            "minProperties": 5,
+            "multiline": true,
+            "consistent": true
+          },
+          "ObjectPattern": {
+            "minProperties": 5,
+            "multiline": true,
+            "consistent": true
+          }
         }
       ]
     },
@@ -190,21 +224,22 @@
       "atom": "true"
     },
     "env": {
-      "node": true
+      "node": true,
+      "browser": true
     }
   },
   "homepage": "https://github.com/AtomLinter/linter-eslint#readme",
   "license": "MIT",
-  "main": "./lib/main.js",
+  "main": "./src/main.js",
   "name": "linter-eslint",
   "optionalDependencies": {},
   "package-deps": [
-    "linter"
+    "linter:2.0.0"
   ],
   "providedServices": {
     "linter": {
       "versions": {
-        "1.0.0": "provideLinter"
+        "2.0.0": "provideLinter"
       }
     }
   },
@@ -215,11 +250,8 @@
     "url": "git+https://github.com/AtomLinter/linter-eslint.git"
   },
   "scripts": {
-    "clean": "rimraf lib",
-    "compile": "npm run clean && babel src --out-dir lib",
     "lint": "eslint .",
-    "test": "apm test",
-    "watch": "npm run compile -- -w"
+    "test": "apm test"
   },
-  "version": "8.1.2"
+  "version": "8.4.0"
 }
